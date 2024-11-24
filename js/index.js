@@ -5,53 +5,49 @@ const addToCart = document.querySelectorAll(".add")
 addToCart.forEach(add_Btn => {
     add_Btn.addEventListener("click", () =>{
         genNewButton(add_Btn)
+        add_Btn.previousElementSibling.classList.add("addcart")
     })
 });
 
 // generate the new content of the html
 const genNewButton = (div) => {
     div.classList.add("addcart");
+    div.innerHTML = " "
     div.innerHTML = `
     <img class="decrement compensate" src="./assets/images/icon-decrement-quantity.svg">
-    <p>1</p>
+    <p id = "value">1</p>
     <img class="increment" src="./assets/images/icon-increment-quantity.svg">
     `
-    let valueItem = div.querySelector("p")
-    console.log(valueItem)
     // get all the buttons
-    const btnsDec = document.querySelectorAll(".decrement")
-    const btnsInc = document.querySelectorAll(".increment")
+    const btnDec = div.querySelector(".decrement")
+    const btnInc = div.querySelector(".increment")
+    let value = div.querySelector("#value")
     // call the function
-    btnsIncDec(btnsInc,btnsDec)
+    btnsIncDec(btnInc,btnDec,value)
 }
 
 // create functions for the buttons
-const btnsIncDec = (btnsInc, btnsDec) => {
+const btnsIncDec = (btnInc, btnsDec, value) => {
     // increment
-    btnsInc.forEach(btnInc => {
-        btnInc.addEventListener("click", () => {
-            return true
-        })
+    // here i can see the changue in the html 
+    value.textContent = ""
+    // here only in the console
+    btnInc.addEventListener("click",() => {
+        console.log("Increment")
+        console.log("Current value:", value.textContent);
+        value.textContent = "0"
+        console.log("Updated value:", value.textContent);
     })
-    // decrement
-    btnsDec.forEach(btnDec => {
-        btnDec.addEventListener("click", () => {
-            return false
-        })
-    })
+    
 }
 
 // increment the value
 const incItem = (p) =>{
-    console.log(parseInt(p.textContent)+1)
-    p.textContent = parseInt(p.textContent)+1
+    p.textContent = ""
 }
 
 // decrement the value
 const decItem = (p) =>{
-    p.innerHTML = " "
-    console.log(parseInt(p.textContent)-1)
-    let value = parseInt(p.textContent)-1
-    p.textContent = `${value}`
+    
 }
 
