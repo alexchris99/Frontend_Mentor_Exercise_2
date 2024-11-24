@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
   <title>Frontend Mentor | Product list with cart</title>
@@ -19,128 +21,132 @@
 <body>
 
   <h1>Desserts</h1>
-  <section class="container">
-    <!--Item 1-->
-    <div class="item">
-      <div class="image_button_container">
-        <img src="./assets/images/image-waffle-mobile.jpg" alt="">
-        <button><img src="./assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+  <div class="container_page">
+    <section class="container">
+      <!--Item 1-->
+      <div class="item">
+        <div class="image_button_container">
+          <img src="./assets/images/image-waffle-mobile.jpg" class="img_Product" alt="">
+          <button class="add"><img src="./assets/images/icon-add-to-cart.svg" alt=""><p>Add to Cart</p></button>
+        </div>
+        <div class="item_info">
+          <p class="item_name">Waffle</p>
+          <h4 class="item_description">Waffle with Berries</h4>
+          <h4 class="item_price">$6.50</h4>
+        </div>
       </div>
-      <div class="item_info">
-        <p>Waffle</p>
-        <h4>Waffle with Berries</h4>
-        <h4>6.50</h4>
+      <!--Item 2-->
+      <div class="item">
+        <div class="image_button_container">
+          <img src="./assets/images/image-creme-brulee-mobile.jpg" class="img_Product" alt="">
+          <button class="add"><img src="./assets/images/icon-add-to-cart.svg" alt=""><p>Add to Cart</p></button>
+        </div>
+        <div class="item_info">
+          <p class="item_name">Crème Brûlée</p>
+          <h4 class="item_description">Vanilla Bean Crème Brûlée</h4>
+          <h4 class="item_price">$7.00</h4>
+        </div>
       </div>
-    </div>
-    <!--Item 2-->
-    <div class="item">
-      <div class="image_button_container">
-        <img src="./assets/images/image-creme-brulee-mobile.jpg" alt="">
-        <button><img src="./assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+      <!--Item 3-->
+      <div class="item">
+        <div class="image_button_container">
+          <img src="./assets/images/image-macaron-mobile.jpg" class="img_Product" alt="">
+          <button class="add"><img src="./assets/images/icon-add-to-cart.svg" alt=""><p>Add to Cart</p></button>
+        </div>
+        <div class="item_info">
+          <p class="item_name">Macaron</p>
+          <h4 class="item_description">Macaron Mix of Five</h4>
+          <h4 class="item_price">$8.00</h4>
+        </div>
       </div>
-      <div class="item_info">
-        <p>Crème Brûlée</p>
-        <h4>Vanilla Bean Crème Brûlée</h4>
-        <h4>7.00</h4>
+      <!--Item 4-->
+      <div class="item">
+        <div class="image_button_container">
+          <img src="./assets/images/image-tiramisu-mobile.jpg"class="img_Product"  alt="">
+          <button class="add"><img src="./assets/images/icon-add-to-cart.svg" alt=""><p>Add to Cart</p></button>
+        </div>
+        <div class="item_info">
+          <p class="item_name">Tiramisu</p>
+          <h4 class="item_description">Classic Tiramisu</h4>
+          <h4 class="item_price">$5.50</h4>
+        </div>
       </div>
-    </div>
-    <!--Item 3-->
-    <div class="item">
-      <div class="image_button_container">
-        <img src="./assets/images/image-macaron-mobile.jpg" alt="">
-        <button><img src="./assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+      <!--Item 5-->
+      <div class="item">
+        <div class="image_button_container">
+          <img src="./assets/images/image-baklava-mobile.jpg" class="img_Product" alt="">
+          <button class="add"><img src="./assets/images/icon-add-to-cart.svg" alt=""><p>Add to Cart</p></button>
+        </div>
+        <div class="item_info">
+          <p class="item_name">Baklava</p>
+          <h4 class="item_description">Pistachio Baklava</h4>
+          <h4 class="item_price">$4.00</h4>
+        </div>
       </div>
-      <div class="item_info">
-        <p>Macaron</p>
-        <h4>Macaron Mix of Five</h4>
-        <h4>8.00</h4>
+      <!--Item 6-->
+      <div class="item">
+        <div class="image_button_container">
+          <img src="./assets/images/image-meringue-mobile.jpg" class="img_Product" alt="">
+          <button class="add"><img src="./assets/images/icon-add-to-cart.svg" alt=""><p>Add to Cart</p></button>
+        </div>
+        <div class="item_info">
+          <p class="item_name">Pie</p>
+          <h4 class="item_description">Lemon Meringue Pie</h4>
+          <h4 class="item_price">$5.00</h4>
+        </div>
       </div>
-    </div>
-    <!--Item 4-->
-    <div class="item">
-      <div class="image_button_container">
-        <img src="./assets/images/image-tiramisu-mobile.jpg" alt="">
-        <button><img src="./assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+      <!--Item 7-->
+      <div class="item">
+        <div class="image_button_container">
+          <img src="./assets/images/image-cake-mobile.jpg" class="img_Product" alt="">
+          <button class="add"><img src="./assets/images/icon-add-to-cart.svg" alt=""><p>Add to Cart</p></button>
+        </div>
+        <div class="item_info">
+          <p class="item_name">Cake</p>
+          <h4 class="item_description">Red Velvet Cake</h4>
+          <h4 class="item_price">$4.50</h4>
+        </div>
       </div>
-      <div class="item_info">
-        <p>Tiramisu</p>
-        <h4>Classic Tiramisu</h4>
-        <h4>5.50</h4>
+      <!--Item 8-->
+      <div class="item">
+        <div class="image_button_container">
+          <img src="./assets/images/image-brownie-mobile.jpg"  class="img_Product" alt="">
+          <button class="add"><img src="./assets/images/icon-add-to-cart.svg" alt=""><p>Add to Cart</p></button>
+        </div>
+        <div class="item_info">
+          <p class="item_name">Brownie</p>
+          <h4 class="item_description">Salted Caramel Brownie</h4>
+          <h4 class="item_price">$4.50</h4>
+        </div>
       </div>
-    </div>
-    <!--Item 5-->
-    <div class="item">
-      <div class="image_button_container">
-        <img src="./assets/images/image-baklava-mobile.jpg" alt="">
-        <button><img src="./assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+      <!--Item 9-->
+      <div class="item">
+        <div class="image_button_container">
+          <img src="./assets/images/image-panna-cotta-mobile.jpg" class="img_Product" alt="">
+          <button class="add"><img src="./assets/images/icon-add-to-cart.svg" alt=""><p>Add to Cart</p></button>
+        </div>
+        <div class="item_info">
+          <p class="item_name">Panna Cotta</p>
+          <h4 class="item_description">Vanilla Panna Cotta</h4>
+          <h4 class="item_price">$6.50</h4>
+        </div>
       </div>
-      <div class="item_info">
-        <p> Baklava</p>
-        <h4>Pistachio Baklava</h4>
-        <h4>4.00</h4>
+    </section>
+  
+    <section class="cart">
+      <h3>Your Cart (0)</h3>
+      <div>
+        <img src="./assets/images/illustration-empty-cart.svg" alt="">
       </div>
-    </div>
-    <!--Item 6-->
-    <div class="item">
-      <div class="image_button_container">
-        <img src="./assets/images/image-meringue-mobile.jpg" alt="">
-        <button><img src="./assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-      </div>
-      <div class="item_info">
-        <p>Pie</p>
-        <h4>Lemon Meringue Pie</h4>
-        <h4>5.00</h4>
-      </div>
-    </div>
-    <!--Item 7-->
-    <div class="item">
-      <div class="image_button_container">
-        <img src="./assets/images/image-cake-mobile.jpg" alt="">
-        <button><img src="./assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-      </div>
-      <div class="item_info">
-        <p>Cake</p>
-        <h4>Red Velvet Cake</h4>
-        <h4>4.50</h4>
-      </div>
-    </div>
-    <!--Item 8-->
-    <div class="item">
-      <div class="image_button_container">
-        <img src="./assets/images/image-brownie-mobile.jpg" alt="">
-        <button><img src="./assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-      </div>
-      <div class="item_info">
-        <p>Brownie</p>
-        <h4>Salted Caramel Brownie</h4>
-        <h4>4.50</h4>
-      </div>
-    </div>
-    <!--Item 9-->
-    <div class="item">
-      <div class="image_button_container">
-        <img src="./assets/images/image-panna-cotta-mobile.jpg" alt="">
-        <button><img src="./assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-      </div>
-      <div class="item_info">
-        <p>Panna Cotta</p>
-        <h4>Vanilla Panna Cotta</h4>
-        <h4>6.50</h4>
-      </div>
-    </div>
-  </section>
-
-  <section class="cart">
-    <h3>Your Cart (0)</h3>
-    <div>
-      <img src="./assets/images/illustration-empty-cart.svg" alt="">
-    </div>
-    <p>Your added items will appear here</p>
-  </section>
+      <p>Your added items will appear here</p>
+    </section>
+  </div>
+  
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+  <script src="./js/index.js" defer></script>
 </body>
 </html>

@@ -1,8 +1,31 @@
+@import "generals";
+
+*{
+    background-color: $rose_100;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Red Hat Text",sans-serif;
+}
+img{
+    max-width: 100%;
+    width: auto;
+}
+
+h1{
+    padding: 1em 1em 0 1em;
+}
+.container_page{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 .container{
     display: flex;
     flex-direction: column;
+    width: auto;
     .item{
-        margin: 5% ;
+        margin: 8% ;
         display: flex;
         flex-direction: column;
         .image_button_container{
@@ -17,7 +40,7 @@
                 -o-border-radius: 10px;
             }
             button{
-                width: 40%;
+                width: 50%;
                 margin: 0 auto;
                 margin-top: -1.5em;
                 height: 3.5em;
@@ -26,16 +49,56 @@
                 -moz-border-radius: 20px;
                 -ms-border-radius: 20px;
                 -o-border-radius: 20px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background-color: $rose_100;
+                gap: 3px;
+                border: 1px solid gray;
+                p{
+                    width: 50%;
+                }
+                &.addcart{
+                    background-color: $red;
+                    justify-content: space-around;
+                    p{
+                        background-color: $red;
+                        color: $rose_50;
+                    }
+                    img{
+                        padding: 4px;
+                        border: 1px solid $rose_50;
+                        background-color: $red;
+                        border-radius: 50%;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        -ms-border-radius: 50%;
+                        -o-border-radius: 50%;
+                        max-width: 100%;
+                        width: auto;
+                    }
+                    .compensate{
+                        padding: 8px 4px;
+                    }
+                }
+                p{
+                    font-weight: 900;
+                }
             }
         }
         .item_info{
-            h4{
-                padding: 0;
-                margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .item_name{
+                color: $rose_300;
             }
-            p{
-                padding: 0;
-                margin: 0;
+            .item_description{
+                color: $rose_900;
+            }
+            .item_price{
+                color: $red;
             }
         }
     }
@@ -45,13 +108,56 @@
 .cart{
     width: 80%;
     margin: 0 auto;
+    padding-top: .7em;
+    padding-bottom: 3em;
+    h3{
+        color: $red;
+    }
     div{
         width: 100%;
         display: flex;
         justify-content: center;
+        padding-bottom: .5em;
     }
     p{
         width: 100%;
-        text-align: center
+        text-align: center;
+        color: $rose_500;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container_page{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2em;
+        .container{
+            grid-column: 1/3;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-row: auto;
+            column-gap: 1em;
+            row-gap: 1em;
+            .item{
+                .img_Product{
+                    max-width: 250px;
+                    width: auto;
+                    height: 400px;
+                    height: auto;
+                }
+                button{
+                    width: 80%;
+                }
+            }
+        }
+        .cart{
+            margin: 1em;
+            grid-column: 3/4;
+            width: 80%;
+            h3{
+                margin-top: -3em;
+                padding-bottom: 2em;
+            }
+        }
     }
 }
