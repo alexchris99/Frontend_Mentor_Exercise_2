@@ -4,7 +4,7 @@ let foodItems = [
     Waffle = {
                 "name": "Waffle with Berries",
                 "price": 6.50,
-                "cuantity": 0
+                "cuantity": 0,
             },
     // item 2
     Crème = {
@@ -70,6 +70,7 @@ const itemsarr = document.querySelectorAll(".item")
 addToCart.forEach(add_Btn => {
     add_Btn.addEventListener("click", () =>{
         genNewButton(add_Btn, foodItems);
+
         add_Btn.previousElementSibling.classList.add("addcart");
         foodItems.forEach(element => {
             if(element.name.includes(add_Btn.parentNode.nextElementSibling.querySelector("p").textContent)){
@@ -95,6 +96,13 @@ let genNewButton = (div, foodItems) => {
         // stop the propagation of the calling functions
         e.stopPropagation()
         qty.textContent = Number(qty.textContent)-1
+        if(qty.textContent == 0){
+            div.innerHTML = `
+            <img src="./assets/images/icon-add-to-cart.svg" alt=""><p>Add to Cart</p>
+            `
+            div.parentNode.querySelector("img").classList.remove("addcart")
+            div.classList.remove("addcart")
+        }
         foodItems.forEach(element => {
             if(element.name.includes(div.parentNode.nextElementSibling.querySelector("p").textContent)){
                 element.cuantity = Number(qty.textContent)
@@ -135,7 +143,7 @@ const createOrder = (foodItems) =>{
     let cartItems = 0
     foodItems.forEach(element => {
         let div = document.createElement("div")
-        div.classList.add("orderItem")
+        div.classList.add("orderItem")        
         if(element.cuantity != 0){
             div.innerHTML = `
                 <p class="productDescription">${element.name}</p>
@@ -171,6 +179,49 @@ const createOrder = (foodItems) =>{
     cart.append(confirm)
     itemCount.textContent = `Your Cart(${cartItems})`
     cancel()
+    
+    confirm.addEventListener("click", () =>{
+        let orderConfirmed = cart.parentNode.cloneNode(true)
+        let ordered = document.createElement("img")
+        
+        ordered.src = "./assets/images/icon-order-confirmed.svg"
+        orderConfirmed.prepend(ordered)
+        //
+        let newText = orderConfirmed.querySelector(".cart_items")
+        newText.textContent = "Order Confirmed";
+        newText.style.color = "black"
+        newText.style.fontSize = "2.5em"
+        //
+        let message = document.createElement("p")
+        message.textContent = "We hope you enjoy your food!"
+        message.classList.add("message")
+        newText.append(message)
+        orderConfirmed.querySelector(".carbon").remove()
+        let addImg = orderConfirmed.querySelectorAll(".productDescription")
+        addImg.forEach(element => {
+            //console.log(element.textContent)
+            //console.log(element.parentNode)
+            itemsarr.forEach(item => {
+                if(element.textContent == item.querySelector(".item_description").textContent){
+                    let imgOrder = item.querySelector(".img_Product").cloneNode()
+                    imgOrder.classList.add("img_confirm")
+                    element.prepend(imgOrder)
+                }
+            })
+        });
+        document.querySelector(".modal").append(orderConfirmed)
+        document.querySelector(".modal").style.display = "block"
+        orderConfirmed.classList.add("modal-content")
+        //remove buttons
+        let rem = orderConfirmed.querySelectorAll(".productPrice")
+        rem.forEach(element => {
+            element.querySelector(".cancelOrder").remove()
+        });
+        orderConfirmed.querySelector(".confirm").textContent = "Start New Order"
+        orderConfirmed.querySelector(".confirm").addEventListener("click",()=>{
+            location.reload()
+        })
+    })
 }
 
 const cancel = () =>{
@@ -194,4 +245,15 @@ const cancel = () =>{
             createOrder(foodItems)
         })
     });
+    if(itemCount.textContent.includes(0)){
+        cart.innerHTML = `
+        <div>
+            <img src="./assets/images/illustration-empty-cart.svg" alt="">
+        </div>
+        <p class="empty">Your added items will appear here</p>
+        `
+    }
 }
+
+// TODO add functionality to the confirm order
+
