@@ -1,4 +1,4 @@
-// food items
+// food items dictionary
 let foodItems = [
     // item 1
     Waffle = {
@@ -66,12 +66,12 @@ const itemCount = document.querySelector(".cart_items")
 // get all items
 const itemsarr = document.querySelectorAll(".item")
 
-// add event listener for add to car
+// add event listener for add to car button of each item 
 addToCart.forEach(add_Btn => {
     add_Btn.addEventListener("click", () =>{
         genNewButton(add_Btn, foodItems);
-
         add_Btn.previousElementSibling.classList.add("addcart");
+        // chech the dict and increment the cuantity if the element includes the text content
         foodItems.forEach(element => {
             if(element.name.includes(add_Btn.parentNode.nextElementSibling.querySelector("p").textContent)){
                 element.cuantity = Number(element.cuantity)+1  
@@ -96,6 +96,7 @@ let genNewButton = (div, foodItems) => {
         // stop the propagation of the calling functions
         e.stopPropagation()
         qty.textContent = Number(qty.textContent)-1
+        // if the user reduce the cuantity to less than one we re render the previous button
         if(qty.textContent == 0){
             div.innerHTML = `
             <img src="./assets/images/icon-add-to-cart.svg" alt=""><p>Add to Cart</p>
@@ -103,9 +104,11 @@ let genNewButton = (div, foodItems) => {
             div.parentNode.querySelector("img").classList.remove("addcart")
             div.classList.remove("addcart")
         }
+        // uppdate the dict
         foodItems.forEach(element => {
             if(element.name.includes(div.parentNode.nextElementSibling.querySelector("p").textContent)){
                 element.cuantity = Number(qty.textContent)
+                // call the function
                 createOrder(foodItems)   
             }
         });
@@ -122,25 +125,29 @@ let genNewButton = (div, foodItems) => {
     incBtn.addEventListener('click', (e) => {
         // stop the propagation of the calling functions
         e.stopPropagation()
+        // add one
         qty.textContent = Number(qty.textContent)+1
+        // uppdate the dict
         foodItems.forEach(element => {
             if(element.name.includes(div.parentNode.nextElementSibling.querySelector("p").textContent)){
                 element.cuantity = Number(qty.textContent)
+                // call the function 
                 createOrder(foodItems)  
             }
         });
     })
-
+    // append elements
     div.appendChild(decBtn)
     div.appendChild(qty)
     div.appendChild(incBtn)
 }
 
-
+// generate cart order
 const createOrder = (foodItems) =>{
     cart.innerHTML = ""
     let total = 0
     let cartItems = 0
+    // check the dict to generate the cart if the quantity is greater tha 0
     foodItems.forEach(element => {
         let div = document.createElement("div")
         div.classList.add("orderItem")        
@@ -157,6 +164,7 @@ const createOrder = (foodItems) =>{
         cartItems += element.cuantity
         total += element.price*element.cuantity
     });
+
     // Total order
     let totalOrder = document.createElement("p")
     totalOrder.classList.add("total_container")
@@ -164,6 +172,7 @@ const createOrder = (foodItems) =>{
     <span class="text_order">Order Total</span>
     <span class ="total_order">$${total}</span>`
     cart.append(totalOrder)
+
     // Carbon free
     let carbon = document.createElement("div")
     carbon.classList.add("carbon")
@@ -172,6 +181,7 @@ const createOrder = (foodItems) =>{
     <p>This is a <span>carbon-neutral</span> delibery</p>
     `
     cart.append(carbon)
+
     // confirm order
     let confirm = document.createElement("button")
     confirm.classList.add("confirm")
@@ -179,7 +189,7 @@ const createOrder = (foodItems) =>{
     cart.append(confirm)
     itemCount.textContent = `Your Cart(${cartItems})`
     cancel()
-    
+    // button confirm order
     confirm.addEventListener("click", () =>{
         let orderConfirmed = cart.parentNode.cloneNode(true)
         let ordered = document.createElement("img")
@@ -245,6 +255,7 @@ const createOrder = (foodItems) =>{
     })
 }
 
+// cancel button 
 const cancel = () =>{
     const cancelBtns = document.querySelectorAll(".cancelOrder")
     cancelBtns.forEach(cancelBtn => {
@@ -276,5 +287,4 @@ const cancel = () =>{
     }
 }
 
-// TODO add functionality to the confirm order
 
