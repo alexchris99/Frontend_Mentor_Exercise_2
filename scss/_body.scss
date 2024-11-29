@@ -245,20 +245,43 @@ h1{
         padding: 5em 1em 1em 1em;
         width: 100%;
         .cart_content{
-            .productDescription{
-                display: flex;
-                flex-direction: column;
-                margin: 0 auto;
-                align-items: center;
-                .img_confirm{
-                    width: 40%;
-                }
+            .orderItem{
+                margin: 1.5em;
             }
-            .productPrice{
-                justify-content: center;
-                gap: 2em;
-                span{
-                    font-size: 1.3em;
+            .item-ordered{
+                display: flex;
+                flex-direction: row;
+                .img_confirm{
+                    width: 30%;
+                }
+                .item-plain-text{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .productDescription{
+                        width: auto;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: right;
+                        margin:0 1em;
+                    }
+                    .orderItemInfo{
+                        .productPrice{
+                            width: auto;
+                            margin:0 1em;
+                            justify-content: left;
+                            gap: 2em;
+                            .total_price_item{
+                                padding-left: 25em;
+                                color: $rose_900;
+                                    font-weight: 900;
+                            }
+                            span{
+                                font-size: 1.3em;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -267,6 +290,11 @@ h1{
         width: 80%;
         margin: 0 auto;
         padding: 1em;
+        margin-bottom: 1em;
+    }
+    .confirm{
+        margin: 1em auto;
+        width: 80%;
     }
 }
 
@@ -308,8 +336,22 @@ h1{
     }
     .modal{
         .modal-content{
+            width: 60%;
             .cart_items{
                 margin-top:0;
+            }
+            .cart_content{
+                .item-ordered{
+                    .item-plain-text{
+                        .orderItemInfo{
+                            .productPrice{
+                                .total_price_item {
+                                    padding-left: 5em;
+                                }
+                            } 
+                        } 
+                    } 
+                }
             }
         }
     }

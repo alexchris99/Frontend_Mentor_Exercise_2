@@ -205,7 +205,7 @@ const createOrder = (foodItems) =>{
                 if(element.textContent == item.querySelector(".item_description").textContent){
                     let imgOrder = item.querySelector(".img_Product").cloneNode()
                     imgOrder.classList.add("img_confirm")
-                    element.prepend(imgOrder)
+                    element.parentNode.prepend(imgOrder)
                 }
             })
         });
@@ -216,6 +216,27 @@ const createOrder = (foodItems) =>{
         let rem = orderConfirmed.querySelectorAll(".productPrice")
         rem.forEach(element => {
             element.querySelector(".cancelOrder").remove()
+        });
+        // get al the items to organice the content 
+        let confirmarr = orderConfirmed.querySelectorAll(".orderItem")
+        confirmarr.forEach(itemOrder => {
+            // create div to store the information
+            let itemContainer = document.createElement("div")
+            itemContainer.classList.add("item-ordered")
+            // create a div to store the item info 
+            let itemInfoPlainText = document.createElement("div")
+            itemInfoPlainText.classList.add("item-plain-text")
+            // create a clone of the image
+            let imgClone = itemOrder.querySelector(".img_confirm")
+            // create a clone of the description
+            let descClone = itemOrder.querySelector(".productDescription")
+            // create a clone of the order info
+            let orderClone = itemOrder.querySelector(".orderItemInfo")
+            // add the plain text to the info div
+            itemInfoPlainText.append(descClone,orderClone)
+            // reorganice the container
+            itemContainer.append(imgClone,itemInfoPlainText)
+            itemOrder.append(itemContainer)
         });
         orderConfirmed.querySelector(".confirm").textContent = "Start New Order"
         orderConfirmed.querySelector(".confirm").addEventListener("click",()=>{
