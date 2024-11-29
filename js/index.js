@@ -195,6 +195,7 @@ const createOrder = (foodItems) =>{
         let ordered = document.createElement("img")
         
         ordered.src = "./assets/images/icon-order-confirmed.svg"
+        ordered.classList.add("img_ordered")
         orderConfirmed.prepend(ordered)
         //
         let newText = orderConfirmed.querySelector(".cart_items")

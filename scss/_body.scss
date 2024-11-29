@@ -250,15 +250,25 @@ h1{
         margin:0 auto;
         padding: 5em 1em 1em 1em;
         width: 100%;
+        .img_ordered{
+            max-width: 4em;
+            width: auto;
+        }
+        .cart_items{
+            text-align: left;
+        }
         .cart_content{
             .orderItem{
-                margin: 1.5em;
+                margin: 1em;
+                justify-content: center;
+                align-content: center;
             }
             .item-ordered{
                 display: flex;
                 flex-direction: row;
                 .img_confirm{
-                    width: 30%;
+                    max-width: 30%;
+                    width: auto;
                 }
                 .item-plain-text{
                     width: 100%;
@@ -279,7 +289,7 @@ h1{
                             justify-content: left;
                             gap: 2em;
                             .total_price_item{
-                                padding-left: 25em;
+                                padding-left: 1em;
                                 color: $rose_900;
                                     font-weight: 900;
                             }
